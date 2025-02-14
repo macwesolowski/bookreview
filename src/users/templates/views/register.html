@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Rejestracja</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="mt-5 mb-3 overflow-hidden">
+    <div class="container">
+        <div class="row">
+          <h1 class="text-center text-secondary">Zarejestruj się</h1>
+        </div>
+    </div>
+</section>
+
+<section class="text-black">
+    <div class="form-container my-5">
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+
+            {% if register_form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in register_form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {{ register_form | crispy }}
+            <div class="d-flex justify-content-center my-4">
+            <button class="w-50 btn btn-m" type="submit">ZAREJESTRUJ SIĘ</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="register-btn text-center py-5">
+    <h1 class="text-primary mb-5">Moje konto</h1>
+    {% if user.is_superuser %}
+        <h3 class="text-secondary mb-5">
+            Cześć adminie {{ user.username }}, jaką książkę dziś dodasz do katalogu?
+        </h3>
+        <a href="{% url 'dodaj_ksiazke' %}" class="btn btn-lg btn-success">Dodaj książkę</a>
+
+    {% else %}
+        {% with user.recenzja_set.count as liczba_recenzji %}
+             {% if liczba_recenzji == 1 %}
+                <h3 class="text-secondary">
+                    Cześć {{ user.username }}, dodałeś już {{ liczba_recenzji }} recenzję. Dobrze Ci idzie!
+                </h3>
+            {% elif liczba_recenzji > 1 and liczba_recenzji < 5 %}
+                <h3 class="text-secondary">
+                    Cześć {{ user.username }}, dodałeś już {{ liczba_recenzji }} recenzje. Dobrze Ci idzie!
+                </h3>
+            {% elif liczba_recenzji >= 5 %}
+                <h3 class="text-secondary">
+                    Cześć {{ user.username }}, dodałeś już {{ liczba_recenzji }} recenzji. Dobrze Ci idzie!
+                </h3>
+            {% else %}
+                <h3 class="text-secondary">
+                    Nie dodałeś jeszcze żadnej recenzji – na co jeszcze czekasz? ;)
+                </h3>
+            {% endif %}
+        {% endwith %}
+    {% endif %}
+</div>
+{% endblock %}

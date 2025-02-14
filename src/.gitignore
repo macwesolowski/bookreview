@@ -1,0 +1,22 @@
+ # Ignorowanie środowiska wirtualnego
+venv/
+env/
+
+# Ignorowanie plików Pythona
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorowanie plików systemowych
+.DS_Store
+Thumbs.db
+
+# Ignorowanie ustawień edytora
+.vscode/
+.idea/
+
+# Ignorowanie pliku z danymi lokalnymi Django
+*.sqlite3
+.env
+

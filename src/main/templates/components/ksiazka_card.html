@@ -1,0 +1,21 @@
+<div class="card shadow-sm w340">
+    <img class="bd-placeholder-img card-img-top align-content-center" src="{{ listing.okladka.url }}" role="img"
+         aria-label="Placeholder: Thumbnail" focusable="false">
+    <div class="card-body">
+        <h4 class="card-text">{{ listing.model }}</h4>
+        <div class="row justify-content-start align-items-center">
+            <div>
+                <p class="card-text"><strong>Autor: </strong>{{ listing.autor }}</p>
+            </div>
+        </div>
+        <br>
+        <p class="card-text">{{ listing.opis | truncatechars:300 }}</p>
+        <p><strong>Kategoria:</strong> {{ listing.kategoria }}</p>
+        <p><strong>Średnia ocena:</strong> {{ listing.average_rating }} / 5</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'ksiazka_detail' listing.id %}">Więcej</a>
+            </div>
+        </div>
+    </div>
+</div>

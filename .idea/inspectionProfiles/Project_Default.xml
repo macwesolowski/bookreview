@@ -1,0 +1,44 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="14">
+            <item index="0" class="java.lang.String" itemvalue="question.unanswered" />
+            <item index="1" class="java.lang.String" itemvalue="message.tags" />
+            <item index="2" class="java.lang.String" itemvalue="{%" />
+            <item index="3" class="java.lang.String" itemvalue="endif" />
+            <item index="4" class="java.lang.String" itemvalue="%}" />
+            <item index="5" class="java.lang.String" itemvalue="user_responses" />
+            <item index="6" class="java.lang.String" itemvalue="choice.id" />
+            <item index="7" class="java.lang.String" itemvalue="user_responses.get(question.id)" />
+            <item index="8" class="java.lang.String" itemvalue="input" />
+            <item index="9" class="java.lang.String" itemvalue="checked" />
+            <item index="10" class="java.lang.String" itemvalue="user_responses.get(question.id).choice_id" />
+            <item index="11" class="java.lang.String" itemvalue="user_responses.get(question.id).choice.id" />
+            <item index="12" class="java.lang.String" itemvalue="selected_choices.get(question.id)" />
+            <item index="13" class="java.lang.String" itemvalue="focusable" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="8">
+            <item index="0" class="java.lang.String" itemvalue="SALAlcemy" />
+            <item index="1" class="java.lang.String" itemvalue="certifi" />
+            <item index="2" class="java.lang.String" itemvalue="asgiref" />
+            <item index="3" class="java.lang.String" itemvalue="numpy" />
+            <item index="4" class="java.lang.String" itemvalue="PyMySQL" />
+            <item index="5" class="java.lang.String" itemvalue="pytz" />
+            <item index="6" class="java.lang.String" itemvalue="requests" />
+            <item index="7" class="java.lang.String" itemvalue="urllib3" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

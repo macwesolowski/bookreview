@@ -1,0 +1,52 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Dodaj książkę</title>
+{% endblock %}
+
+{% block content %}
+<section class="pt-5 overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center text-secondary">Dodaj książkę</h1>
+        </div>
+    </div>
+</section>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<section class="text-black">
+    <div class="form-container my-5">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-4">
+                    {{ form.tytul|as_crispy_field }}
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    {{ form.autor|as_crispy_field }}
+                </div>
+                <div class="col-12">
+                    {{ form.opis|as_crispy_field }}
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    {{ form.okladka|as_crispy_field }}
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    {{ form.kategoria|as_crispy_field }}
+                </div>
+            </div>
+            <div class="d-flex justify-content-center my-4">
+                <button type="submit" class="btn btn-lg btn-success">Dodaj książkę</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

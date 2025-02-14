@@ -1,0 +1,69 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ ksiazka.tytul }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center">{{ ksiazka.tytul }}</h1>
+    <h4 class="text-secondary text-center">{{ ksiazka.autor }}</h4>
+    <div class="text-center">
+        <img src="{{ ksiazka.okladka.url }}" alt="Okładka książki" class="img-fluid mt-3" style="max-width: 300px;">
+    </div>
+    <p class="mt-4">{{ ksiazka.opis }}</p>
+    <p><strong>Kategoria:</strong> {{ ksiazka.kategoria }}</p>
+</div>
+
+<div class="container mt-5">
+    <div class="col-lg-8 mx-auto">
+        <div class="shadow-lg p-4 bg-light border-primary rounded">
+            <h4 class="text-center text-primary mb-3">Dodaj recenzję</h4>
+            <form id="id-add-review" method="post">
+                {% csrf_token %}
+
+                <input type="hidden" id="ksiazka_id" value="{{ ksiazka.id }}">
+
+                <div class="form-group">
+                    <label for="tresc_recenzji" class="form-label text-secondary">Treść recenzji:</label>
+                    <textarea id="tresc_recenzji" name="tresc_recenzji" class="form-control" rows="4"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <h5 class="text-secondary">Ocena:</h5>
+                    <div class="star-rating d-flex justify-content-center gap-2">
+                        <input type="radio" name="ocena" value="5" id="ocena5"><label for="ocena5"></label>
+                        <input type="radio" name="ocena" value="4" id="ocena4"><label for="ocena4"></label>
+                        <input type="radio" name="ocena" value="3" id="ocena3"><label for="ocena3"></label>
+                        <input type="radio" name="ocena" value="2" id="ocena2"><label for="ocena2"></label>
+                        <input type="radio" name="ocena" value="1" id="ocena1"><label for="ocena1"></label>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <button type="button" id="submit-review" class="btn btn-primary px-4">Dodaj recenzję</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h5 class="mt-4">
+        Średnia ocena:
+        <span id="srednia-ocena">{{ srednia_ocena|floatformat:2 }}</span> / 5
+    </h5>
+
+    <div id="recenzje">
+        {% for recenzja in ksiazka.recenzje.all %}
+            <div class="review border p-3 my-2">
+                <strong>{{ recenzja.autor.username }}</strong>
+                <span class="text-warning text-black">({{ recenzja.ocena }} ★)</span>
+                <p>{{ recenzja.tresc_recenzji }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="{% static 'js/review.js' %}"></script>
+{% endblock %}
