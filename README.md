@@ -3,7 +3,9 @@ A Django application that allows administrators to add books and registered user
 
 ## 🚀 Features
 - Admin can add books (title, author, description, category, cover image).
-- Registered users can add reviews and rate books.
+- Registered users can add reviews and rate books. It is done without page reload, using AJAX.
+- Filtering books by genre, author and title.
+- Pagination for book list.
 - Responsive interface using Bootstrap.
 - Supports book cover uploads (`ImageField`).
 - User registration and login system.
